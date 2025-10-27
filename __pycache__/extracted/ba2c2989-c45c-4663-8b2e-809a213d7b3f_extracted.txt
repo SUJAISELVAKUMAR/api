@@ -1,0 +1,38 @@
+
+
+--- Page 1 ---
+main.py; FastAPI Movie API with MySQL 
+ 
+This program is  a small web app that lets you manage a list of movies stored in a database. 
+It uses FastAPI to create a web API. You can:See basic info about the app at /.Get a list of 
+all movies from the database at /movies.Look up a movie by its ID or title.Add a new movie, 
+update an existing movie, or delete a movie. 
+ 
+It connects to a MySQL database to store the movie data. Whenever it fetches data from the 
+database, it converts the raw data into a  dictionary so it can be sent  to anyone using the 
+API. 
+ 
+connection.py Database Connection Helper 
+ 
+It handles connecting to the database. Instead of writing the connection code every time, this 
+function lets the app call it and get a working connection. 
+ 
+It reads the database info like host, username, password, database name from environment 
+variables so sensitive info isn’t hardcoded. If it connects successfully, it prints “Connection 
+successful,” otherwise, it tells you what went wrong. 
+ 
+Inmemory mov; FastAPI Movie API with In-Memory Data 
+ 
+This program is very similar to main, but it doesn’t use a database. Instead, it keeps the 
+movie list in memory as a Python list.We can get all movies, look up a movie by ID, add new 
+movies, update movies, or delete them.Changes only last while the server is running,if you 
+restart, all changes disappear because there’s no database saving the data. 
+ 
+Movie.py;Movie Data Model and Helper 
+ 
+This program defines what a movie should look like. Using Pydantic, it makes sure that 
+every movie has a title, a year, and optionally a storyline.It also has a helper function to turn 
+a database row into a dictionary, so that the main  can return movies in a  JSON format.  
+ 
+ 
+ 
